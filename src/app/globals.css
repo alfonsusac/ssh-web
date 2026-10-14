@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-color-fg: #eee;
+  --color-color-bg: black;
+  --color-color-border: #111;
+
+  --color-muted: #777;
+  --color-muted-2: #555;
+  --color-faint: #333;
+
+  --font-sans: var(--font-next-sans);
+  --font-mono: var(--font-next-mono);
+
+  --text-xs: 11.75px;
+  --text-sm: 12.5px;
+  --text-sm--line-height: 0.65rem;
+  --text-base: 14px;
+  --text-base--line-height: 0.75rem;
+  --text-lg: 16px;
+  --text-lg--line-height: 0.75rem;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-4xl: 28px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility base-style {
+  @apply text-base
+  font-sans
+  bg-color-bg
+  text-color-fg
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility fcol {
+  @apply flex flex-col w-full
+}
+@utility frow {
+  @apply flex flex-row items-center
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility button {
+  @apply h-8 flex gap-2 items-center self-start bg-color-fg/10 rounded-md 
+  px-4 font-medium text-sm border border-color-fg/10
+  cursor-pointer select-none 
+  tracking-tight
+  hover:bg-color-fg/15 
+  active:translate-y-px
+  disabled:pointer-events-none
+  disabled:opacity-50
+}
+@utility button-ghost{
+  @apply button bg-transparent hover:bg-color-fg/10
+}
+@utility error-card {
+  @apply bg-red-500/10 self-stretch rounded-lg p-4 fcol gap-1
+}
+
+
+
+@utility input-box {
+  @apply bg-color-fg/5 rounded-md p-2 px-3
+  outline
+  outline-transparent
+  hover:outline-color-fg/15
+  focus-visible:outline-color-fg/25
+  font-mono
+}
+@utility input-group {
+  @apply fcol gap-1 text-sm
 }

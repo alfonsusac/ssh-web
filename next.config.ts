@@ -1,21 +1,21 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   /* config options here */
-  experimental: {
-    agentFeedback: true,
-  },
+  // experimental: {
+  //   agentFeedback: true,
+  // },
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
   turbopack: {
     rules: {
       "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
+        loaders: [ "@tailwindcss/turbopack" ],
         as: "*.css",
       },
     },
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
